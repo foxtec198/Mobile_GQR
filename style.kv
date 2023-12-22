@@ -1,0 +1,32 @@
+MDBoxLayout:
+    MDFloatLayout:
+        MDIconButton:
+            icon: 'qrcode-edit'
+            font_size: 100
+            pos_hint: {'center_x': 0.1,'center_y': 0.95}
+
+        MDTextField:
+            hint_text: 'Usuário'
+            pos_hint: {'center_x': 0.5,'center_y': 0.6}
+            icon_left: "account-circle"
+            size_hint: 0.5, 0.1
+
+        MDTextField:
+            hint_text: 'Senha'
+            pos_hint: {'center_x': 0.5,'center_y': 0.5}
+            password: True
+            icon_left: "key-variant"
+            size_hint: 0.5, 0.1
+            
+        MDIconButton:
+            icon: "eye-off"
+            pos_hint: {'center_x': 0.5}
+            thheme_text_color: 'hint'
+            on_release:
+                self.icon = "eye" if self.icon == "eye-off" else "eye-off"
+                MDTextField.password = False if MDTextField.password is True else   1 True
+                
+        MDRaisedButton:
+            text: 'Login!'
+            pos_hint: {'center_x': 0.5,'center_y': 0.2}
+            size_hint: 0.5, 0
