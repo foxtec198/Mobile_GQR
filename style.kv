@@ -18,14 +18,13 @@ MDBoxLayout:
             icon_left: "key-variant"
             size_hint: 0.5, 0.1
             
-        MDIconButton:
-            icon: "eye-off"
-            pos_hint: {'center_x': 0.5}
-            thheme_text_color: 'hint'
-            on_release:
-                self.icon = "eye" if self.icon == "eye-off" else "eye-off"
-                MDTextField.password = False if MDTextField.password is True else   1 True
-                
+        # MDIconButton:
+        #     icon: "eye-off"
+        #     pos_hint: {'center_x': 0.5}
+        #     thheme_text_color: 'hint'
+        #     on_release:
+        #         self.icon = "eye" if self.icon == "eye-off" else "eye-off"
+
         MDRaisedButton:
             text: 'Login!'
             pos_hint: {'center_x': 0.5,'center_y': 0.2}
