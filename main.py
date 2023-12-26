@@ -1,3 +1,4 @@
-from app import GeradorQR
+from app import main
+from flet import *
 
-GeradorQR().run()
+app(main)

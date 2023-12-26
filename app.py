@@ -1,18 +1,30 @@
-from kivy.lang import Builder
-from kivymd.app import MDApp, ThemeManager
+from flet import *
 
-class Gerar:
-    def __init__(self):
-        ...
-
-class GeradorQR(MDApp):
-    def build(self):
-        theme_cls = ThemeManager()
-        theme_cls.primary_palette = "DeepPurple"
-        return Builder.load_file('style.kv')
+def main(page: Page):
+    def login(e):
+        print('Login Realizado')
+        
+    page.title = 'Gerador QR'
+    page.horizontal_alignment = MainAxisAlignment.CENTER
+    page.vertical_alignment = MainAxisAlignment.SPACE_AROUND
+    page.padding = 70
     
-    def on_start(self):
-        self.fps_monitor_start()
+    icon = Icon(name=icons.QR_CODE_SCANNER,size=100)
+    inServer = TextField(label="Servidor")
+    inUser = TextField(label="Usuário")
+    inPwd = TextField(label="Senha", password=True, can_reveal_password=True)
+    salvarUser = Checkbox(label='Salvar Usuário')
+    btnLogin = FilledButton('Login', icon='login', on_click = login)
+    
+    cardLogin = Container(
+        content=Column([icon, inServer, inUser, inPwd, salvarUser, btnLogin]),
+        bgcolor = 'Black',
+        width = 300,
+        height= 450,
+        border_radius=20,
+        padding = 20
+    )
+    page.add(Column([cardLogin]))
 
 if __name__ == '__main__':
-    GeradorQR().run()
+    app(main)
