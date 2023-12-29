@@ -1,3 +1,38 @@
-BoxLayout:
-    MDLabel:
-        text: "Teste Andro"
+<LoginWin>:
+MDFloatLayout:
+    MDTopAppBar:
+        title: "Gerador QR - Mobile"
+        right_action_items: [["dots-vertical", lambda x: app.login()]]
+        left_action_items: [["qrcode-scan"]]
+        type: "top"
+        halign: "center"
+        pos_hint: {'center_x': 0.5,'center_y': 0.96}
+        elevation: 1
+    MDTextField:
+        id: entryServer
+        hint_text: "Server"
+        pos_hint: {'center_x': 0.5,'center_y': 0.6}
+        helper_text: "10.10.1.10"
+        size_hint_x: .8
+    MDTextField:
+        id: entryUser
+        hint_text: "User"
+        pos_hint: {'center_x': 0.5,'center_y': 0.5}
+        size_hint_x: .8
+    MDTextField:
+        id: entryPwd 
+        hint_text: "Senha"
+        pos_hint: {'center_x': 0.5,'center_y': 0.4}
+        password: True
+        size_hint_x: .8
+    MDRaisedButton:
+        text: "Login"
+        pos_hint: {'center_x': 0.5,'center_y': 0.3}
+        size_hint_x: .8
+        font_size: 18
+        on_press: app.login()
+        
+<MainWin>:
+    MDFloatLayout:
+        MDLabel:
+            text: "text"

@@ -1,3 +1,3 @@
 from gerador import *
 
-Gerador().run()
+App().run()
