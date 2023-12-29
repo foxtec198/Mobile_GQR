@@ -1,3 +1,3 @@
 from gerador import *
 
-app(GeradorQR)
+Gerador()
