@@ -1,41 +1,63 @@
 <LoginWin>:
     name: 'login'
-    MDTopAppBar:
-        title: "Gerador QR - Mobile"
-        right_action_items: [["dots-vertical", app.login]]
-        left_action_items: [["qrcode-scan"]]
-        type: "top"
-        halign: "center"
-        pos_hint: {'center_x': 0.5,'center_y': 0.96}
-        elevation: 1
-    MDTextField:
-        id: entryServer
-        hint_text: "Server"
-        pos_hint: {'center_x': 0.5,'center_y': 0.6}
-        helper_text: "10.10.1.10"
-        size_hint_x: .8
-    MDTextField:
-        id: entryUser
-        hint_text: "User"
-        pos_hint: {'center_x': 0.5,'center_y': 0.5}
-        size_hint_x: .8
-    MDTextField:
-        id: entryPwd 
-        hint_text: "Senha"
-        pos_hint: {'center_x': 0.5,'center_y': 0.4}
-        password: True
-        size_hint_x: .8
-    MDSwitch:
-        value: 'teste'
-        pos_hint: {'center_x': 0.5,'center_y': 0.3}
-    MDRaisedButton:
-        text: "Login"
-        pos_hint: {'center_x': 0.5,'center_y': 0.2}
-        size_hint_x: .8
-        font_size: 20
-        on_press: app.login()
+    FloatLayout:
+        MDTopAppBar:
+            title: "Gerador QR - Mobile"
+            left_action_items: [["qrcode-scan"]]
+            type: "top"
+            halign: "center"
+            pos_hint: {'center_x': 0.5,'center_y': 0.96}
+            elevation: 1
+        FitImage:
+            source: "src/icon.png"
+            size_hint: None, None
+            size: "100dp", "100dp"
+            pos_hint: {"center_x": .5, "center_y": .8}
+
+        MDTextField:
+            id: entryServer
+            icon_left: 'server-security'
+            hint_text: "Server"
+            pos_hint: {'center_x': 0.5,'center_y': 0.6}
+            helper_text: "10.10.1.10"
+            size_hint_x: .8
+        MDTextField:
+            id: entryUser
+            icon_left: 'account-key'
+            hint_text: "User"
+            pos_hint: {'center_x': 0.5,'center_y': 0.5}
+            size_hint_x: .8
+
+        MDTextField:
+            id: entryPwd 
+            icon_left: 'key-variant'
+            hint_text: "Senha"
+            pos_hint: {'center_x': 0.5,'center_y': 0.4}
+            password: True
+            size_hint_x: .8
+        MDIconButton:
+            id: iconBtn
+            icon: 'eye-off'
+            pos_hint: {'center_x': 0.87,'center_y': 0.4}
+            theme_text_color: "Hint"
+            on_release:
+                self.icon = 'eye' if self.icon == 'eye-off' else 'eye-off'
+                entryPwd.password = False if entryPwd.password == True else True
+        MDSwitch:
+            value: 'teste'
+            pos_hint: {'center_x': 0.2,'center_y': 0.3}
+        MDLabel:
+            text: 'Salvar Usuário'
+            halign: 'center'
+            pos_hint: {'center_y': 0.3}
+        MDRaisedButton:
+            text: "Login"
+            pos_hint: {'center_x': 0.5,'center_y': 0.2}
+            size_hint_x: .8
+            font_size: 20
+            on_press: app.login()
         
-<Gerador>:
+<Gerador>
     name: 'gerador'
     MDFloatLayout:
         MDLabel:
