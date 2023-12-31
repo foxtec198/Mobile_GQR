@@ -56,9 +56,33 @@
             size_hint_x: .8
             font_size: dp(20)
             on_press: app.login()
-        
 <Gerador>
     name: 'gerador'
     MDFloatLayout:
-        MDLabel:
-            text: "gerador"
+        MDTopAppBar:
+            title: "Gerador QR - Mobile"
+            left_action_items: [["keyboard-backspace", lambda x: app.back()]]
+            type: "top"
+            halign: "center"
+            pos_hint: {'center_x': 0.5,'center_y': 0.96}
+            elevation: 1
+        MDTextField:
+            id: entryServer
+            icon_left: 'office-building'
+            hint_text: "Numero do CR"
+            pos_hint: {'center_x': 0.5,'center_y': 0.6}
+            helper_text: "Coloque somente os números!"
+            size_hint_x: .8
+        MDTextField:
+            id: entryServer
+            icon_left: 'source-fork'
+            hint_text: "Nível da Estrutura"
+            pos_hint: {'center_x': 0.5,'center_y': 0.45}
+            helper_text: "Caso queira o CR todo deixe em branco"
+            size_hint_x: .8
+        MDRaisedButton:
+            text: "Gerar"
+            pos_hint: {'center_x': 0.5,'center_y': 0.2}
+            size_hint_x: .8
+            font_size: dp(20)
+            on_press: app.gerar()
