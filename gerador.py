@@ -3,6 +3,7 @@ from kivymd.uix.screenmanager import MDScreenManager
 from kivymd.uix.screen import MDScreen
 from kivymd.toast import toast
 from kivy.lang import Builder
+import sqlite3 as sql
 
 class LoginWin(MDScreen):
     ...
@@ -24,11 +25,20 @@ class App(MDApp):
         self.theme_cls.primary_palette = "Gray"
 
         return self.sm
-    
+
     def on_start(self):
         self.ids = self.root.get_screen('login').ids
-        self.ids.entryServer.text = '10.56.6.56'
-    
+        self.con()
+        
+    def con(self):
+        self.conn = sql.connect('src/dados.db')
+        self.c = self.conn.cursor()
+     
+
+    def cons(self, c):
+        self.c.execute(c)
+        self.conn.commit()
+
     def back(self):
         self.root.current = 'login'
         

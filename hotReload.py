@@ -17,14 +17,16 @@ class GeradorQR(MDApp):
         Builder.load_file('style.kv')
         self.theme_cls.theme_style = 'Dark'
         self.sm = MDScreenManager()
-        # self.sm.add_widget(LoginWin())
+        self.sm.add_widget(LoginWin())
         self.sm.add_widget(Gerador())
         
         return self.sm
+
     def back(self):
         self.root.current = 'login'
         
     def login(self):
+        self.root.current = 'gerador'
         ...
         
 GeradorQR().run()
