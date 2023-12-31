@@ -28,7 +28,7 @@ class App(MDApp):
     # def con(self):
     #     driver = '{SQL Server}'
     #     str_c = f"DRIVER={driver};SERVER={self.server};UID={self.user};PWD={self.pwd}"
-    #     self.conn = connect(str_c)
+    #     self.conn = sql.connect(str_c)
         
     def login(self):
         ids = self.root.get_screen('login').ids
