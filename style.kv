@@ -20,6 +20,7 @@
             hint_text: "Server"
             pos_hint: {'center_x': 0.5,'center_y': 0.6}
             helper_text: "10.10.1.10"
+            validator: 'phone'
             size_hint_x: .8
         MDTextField:
             id: entryUser
@@ -67,14 +68,14 @@
             pos_hint: {'center_x': 0.5,'center_y': 0.96}
             elevation: 1
         MDTextField:
-            id: entryServer
+            id: entryCr
             icon_left: 'office-building'
             hint_text: "Numero do CR"
             pos_hint: {'center_x': 0.5,'center_y': 0.6}
             helper_text: "Coloque somente os números!"
             size_hint_x: .8
         MDTextField:
-            id: entryServer
+            id: entryNivel
             icon_left: 'source-fork'
             hint_text: "Nível da Estrutura"
             pos_hint: {'center_x': 0.5,'center_y': 0.45}

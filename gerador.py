@@ -2,6 +2,7 @@ from kivymd.app import MDApp
 from kivymd.uix.screenmanager import MDScreenManager
 from kivymd.uix.screen import MDScreen
 from kivymd.uix.dialog import MDDialog
+from kivymd.toast import toast
 from kivy.lang import Builder
 import requests as r
 
@@ -41,7 +42,7 @@ class App(MDApp):
         self.server = str(ids.entryServer.text)
         self.user = str(ids.entryUser.text)
         self.pwd = str(ids.entryPwd.text)
-        # self.msg('Logado com sucesso')
+        toast('Logado com sucesso')
         self.root.current = 'gerador'
             
 if __name__ == '__main__':
