@@ -2,7 +2,7 @@ from kivymd.app import MDApp
 from kivymd.uix.screenmanager import MDScreenManager
 from kivymd.uix.screen import MDScreen
 from kivy.lang import Builder
-import pyodbc as sql
+import requests as r
 
 class LoginWin(MDScreen):
     ...
