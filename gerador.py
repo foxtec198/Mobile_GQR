@@ -1,10 +1,8 @@
 from kivymd.app import MDApp
 from kivymd.uix.screenmanager import MDScreenManager
 from kivymd.uix.screen import MDScreen
-from kivymd.uix.dialog import MDDialog
 from kivymd.toast import toast
 from kivy.lang import Builder
-import requests as r
 
 class LoginWin(MDScreen):
     ...
@@ -27,23 +25,25 @@ class App(MDApp):
 
         return self.sm
     
+    def on_start(self):
+        self.ids = self.root.get_screen('login').ids
+        self.ids.entryServer.text = '10.56.6.56'
+    
     def back(self):
         self.root.current = 'login'
         
     def gerar(self):
-        self.msg('Gerando, Aguarde...!')
-        
-    def msg(self, msg):
-        self.dialog = MDDialog(text=msg)
-        self.dialog.open()
+        toast('Gerando, Aguarde...!')
         
     def login(self):
-        ids = self.root.get_screen('login').ids
-        self.server = str(ids.entryServer.text)
-        self.user = str(ids.entryUser.text)
-        self.pwd = str(ids.entryPwd.text)
-        toast('Logado com sucesso')
-        self.root.current = 'gerador'
+        self.server = self.ids.entryServer.text
+        self.user = self.ids.entryUser.text
+        self.pwd = self.ids.entryPwd.text
+        if self.server != '' and self.user != '' and self.pwd != '':
+            toast('Logado com sucesso')
+            self.root.current = 'gerador'
+        else:
+            toast('Credenciais invalidas')
             
 if __name__ == '__main__':
     App().run()

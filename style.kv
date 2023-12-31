@@ -8,6 +8,7 @@
             halign: "center"
             pos_hint: {'center_x': 0.5,'center_y': 0.96}
             elevation: 1
+
         FitImage:
             source: "src/icon.png"
             size_hint: None, None
@@ -20,8 +21,9 @@
             hint_text: "Server"
             pos_hint: {'center_x': 0.5,'center_y': 0.6}
             helper_text: "10.10.1.10"
-            validator: 'phone'
+            input_type: 'number'
             size_hint_x: .8
+            
         MDTextField:
             id: entryUser
             icon_left: 'account-key'
@@ -36,6 +38,7 @@
             pos_hint: {'center_x': 0.5,'center_y': 0.4}
             password: True
             size_hint_x: .8
+
         MDIconButton:
             id: iconBtn
             icon: 'eye-off'
@@ -47,16 +50,19 @@
         MDSwitch:
             value: 'teste'
             pos_hint: {'center_x': 0.2,'center_y': 0.3}
+
         MDLabel:
             text: 'Salvar Usuário'
             halign: 'center'
             pos_hint: {'center_y': 0.3}
+            
         MDRaisedButton:
             text: "Login"
             pos_hint: {'center_x': 0.5,'center_y': 0.2}
             size_hint_x: .8
             font_size: dp(20)
             on_press: app.login()
+
 <Gerador>
     name: 'gerador'
     MDFloatLayout:
@@ -67,13 +73,23 @@
             halign: "center"
             pos_hint: {'center_x': 0.5,'center_y': 0.96}
             elevation: 1
+
+        FitImage:
+            source: "src/icon.png"
+            size_hint: None, None
+            size: "100dp", "100dp"
+            pos_hint: {"center_x": .5, "center_y": .8}
+
         MDTextField:
             id: entryCr
             icon_left: 'office-building'
+            required: True
             hint_text: "Numero do CR"
             pos_hint: {'center_x': 0.5,'center_y': 0.6}
             helper_text: "Coloque somente os números!"
             size_hint_x: .8
+            input_type: 'number'
+
         MDTextField:
             id: entryNivel
             icon_left: 'source-fork'
@@ -81,6 +97,7 @@
             pos_hint: {'center_x': 0.5,'center_y': 0.45}
             helper_text: "Caso queira o CR todo deixe em branco"
             size_hint_x: .8
+            
         MDRaisedButton:
             text: "Gerar"
             pos_hint: {'center_x': 0.5,'center_y': 0.2}
