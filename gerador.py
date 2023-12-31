@@ -2,6 +2,7 @@ from kivymd.app import MDApp
 from kivymd.uix.screenmanager import MDScreenManager
 from kivymd.uix.screen import MDScreen
 from kivy.lang import Builder
+import pyodbc as sql
 
 class LoginWin(MDScreen):
     ...
@@ -23,7 +24,7 @@ class App(MDApp):
         self.theme_cls.primary_palette = "Gray"
 
         return self.sm
-        
+
     # def con(self):
     #     driver = '{SQL Server}'
     #     str_c = f"DRIVER={driver};SERVER={self.server};UID={self.user};PWD={self.pwd}"
