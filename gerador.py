@@ -29,6 +29,7 @@ class App(MDApp):
     def on_start(self):
         self.ids = self.root.get_screen('login').ids
         self.con()
+        self.cons('CREATE TABLE IF NOT EXISTS user(Id INTEGER PRIMARY KEY AUTOINCREMENT, server REAL, user TEXT, pwd TEXT)')
         
     def con(self):
         self.conn = sql.connect('src/dados.db')
